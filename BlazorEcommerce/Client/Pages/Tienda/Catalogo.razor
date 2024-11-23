@@ -80,12 +80,25 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">@item.Nombre</h5>
                                     <!-- Product price-->
-                                    <span><strong>Precio: </strong>C$ @item.Precio</span>
+                                    <div class="fs-5 mb-5">
+                                        @if (item.PrecioOferta != 0 && item.PrecioOferta < item.Precio)
+
+                                        {
+                                            <span class="text-danger text-decoration-line-through">C$ @item.Precio</span>
+                                            <span>C$ @item.PrecioOferta</span>
+                                        }
+
+                                        else
+
+                                        {
+                                            <span>C$ @item.Precio</span>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-3 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detalle/@item.IdProducto">Ver Subasta</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detalle/@item.IdProducto">Ver producto</a></div>
                             </div>
                         </div>
                     </div>

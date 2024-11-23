@@ -16,12 +16,12 @@
                 <div class="fs-5 mb-5">
                     @if (modelo.PrecioOferta != 0 && modelo.PrecioOferta < modelo.Precio)
                     {
-                        <span class="text-danger text-decoration-line-through">S/. @modelo.Precio</span>
+                        <span class="text-danger text-decoration-line-through">C$ @modelo.Precio</span>
                         <span>S /.@modelo.PrecioOferta</span>
                     }
                     else
                     {
-                        <span>S /.@modelo.Precio</span>
+                        <span>C$ .@modelo.Precio</span>
                     }
                 </div>
                 <p class="lead">@modelo.Descripcion</p>

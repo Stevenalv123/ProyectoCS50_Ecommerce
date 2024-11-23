@@ -9,7 +9,7 @@
 
 @*<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">BlazorEcommerce</a>
+        <a class="navbar-brand" href="">GoAuction</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +39,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" runat="server" href="#">Ecommerce Demo</a>
+        <img src="GoAuctionLogo.png" style="width:70px; height:50px; margin-right:8px"/><a class="navbar-brand" runat="server" href="#">GoAuction</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
@@ -61,7 +61,7 @@
             <AuthorizeView>
                 <Authorized>
                     <span class="navbar-text me-3">
-                        @context.User.Claims.Where(c => c.Type == ClaimTypes.Email).Select(c => c.Value).SingleOrDefault()
+                        @context.User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault()
                     </span>
                 </Authorized>
             </AuthorizeView>

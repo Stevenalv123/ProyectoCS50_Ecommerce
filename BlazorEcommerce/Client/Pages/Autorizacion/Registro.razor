@@ -1,4 +1,5 @@
 ﻿@page "/registrarse"
+@using System.Text.RegularExpressions
 @layout LoginLayout
 @inject IPersonaServicio _personaServicio
 @inject NavigationManager _navServicio
@@ -232,6 +233,28 @@
             return;
         }
 
+        if(modelo.Clave.Length < 6)
+        {
+            toastService.ShowWarning("La contraseña debe tener al menos 6 caracteres");
+            return;
+        }
+        
+        if(modelo.NombreCompleto.Length < 3)
+        {
+            toastService.ShowWarning("El nombre de usuario debe tener al menos 3 caracteres");
+            return;
+        }
+
+
+
+        if (!Regex.IsMatch(modelo.Correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+        {
+            toastService.ShowWarning("El correo no es válido");
+            return;
+        }
+
+
+
         modelo.Rol = "Cliente";
         var response = await _personaServicio.Crear(modelo);
         if (response.EsCorrecto)
@@ -241,7 +264,7 @@
         }
         else
         {
-            toastService.ShowError("No se pudo crear su cuente, intente más tarde");
+            toastService.ShowError("No se pudo crear su cuenta, intente más tarde");
         }
 
             
